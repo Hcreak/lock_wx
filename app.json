@@ -1,13 +1,13 @@
 {
-	"pages": [
-		"pages/index/index",
-		"pages/logs/logs",
-		"pages/addpage/addpage"
-	],
-	"window": {
-		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#fff",
-		"navigationBarTitleText": "WeChat",
-		"navigationBarTextStyle": "black"
-	}
+  "pages": [
+    "pages/index/index",
+    "pages/addpage/addpage",
+    "pages/history/history"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
 }

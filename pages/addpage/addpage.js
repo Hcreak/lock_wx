@@ -1,4 +1,5 @@
 // pages/addpage/addpage.js
+var app = getApp()
 Page({
 
   /**
@@ -35,9 +36,7 @@ Page({
                     console.log('error')
                   else {
                     setTimeout(function() {
-                      wx.reLaunch({
-                        url: '../index/index'
-                      })
+                      app.setkey()
                     }, 200)
                   }
                 }
