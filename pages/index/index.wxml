@@ -1,10 +1,7 @@
 <!--index.wxml-->
 <view class="container">
 	<button bindtap="checkIsFingerPrint">检测是否可以指纹识别</button>
-	<button bindtap="bindViewTap">add</button>
-	<button bindtap="HaveFingerPrint">该设备是否录入指纹</button>
-	<button bindtap="FingerPrint">识别指纹</button>
-	<button bindtap="vibrateShort">短振动</button>
 	<button bindtap="vibrateLong">长振动</button>
-	<button bindtap="vibrateLong"><image src='../image/SOTER.webp'></image></button>
+	<button bindtap="verify" plain='true' disabled='{!m_button}'><image src='../image/SOTER.webp'></image></button>
+	<button bindtap="verify" plain='true' disabled='{!f_button}'><image src='../image/SOTER.webp'></image></button>  
 </view>
