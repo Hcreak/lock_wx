@@ -44,16 +44,16 @@ Page({
       }
     })
 
-    var client = new Paho.Client("172.20.0.145", 8083, "clientId");
-    // var client = new Paho.Client("172.20.0.145", 8083, wx.getStorageSync('key'));
+    // var client = new Paho.Client("172.20.0.145", 8083, "clientId");
+    var client = new Paho.Client("172.20.0.145", 8083, wx.getStorageSync('key'));
     client.onConnectionLost = that.onConnectionLost;
     client.onMessageArrived = that.onMessageArrived;
     client.connect({
       useSSL: false,
-      userName: 'user',
-      // userName: wx.getStorageSync('key'),
-      password: 'pwd',
-      // password: wx.getStorageSync('pwd'),
+      // userName: 'user',
+      userName: wx.getStorageSync('key'),
+      // password: 'pwd',
+      password: wx.getStorageSync('pwd'),
       cleanSession: true,
       keepAliveInterval: 30,
       onSuccess: function() {

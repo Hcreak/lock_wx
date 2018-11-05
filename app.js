@@ -17,7 +17,8 @@ App({
       success: function (res) {
         if (res.code) {
           wx.request({
-            url: 'http://127.0.0.1:5000/login',
+            // url: 'http://127.0.0.1:5000/login',
+            url: 'http://172.20.0.145:80/login',            
             method: 'POST',
             header: { 'content-type': 'application/json' },
             data: {
@@ -45,7 +46,7 @@ App({
                 else {
                   console.log('nonono')
                   wx.reLaunch({
-                    url: 'pages/addpage/addpage'
+                    url: '../addpage/addpage'
                   })
                 }
               }
@@ -64,7 +65,8 @@ App({
 function updatekey() {
   var oldkey = wx.getStorageSync('key')
   wx.request({
-    url: 'http://127.0.0.1:5000/updatekey',
+    // url: 'http://127.0.0.1:5000/updatekey',
+    url: 'http://172.20.0.145:80/updatekey',    
     method: 'POST',
     header: { 'content-type': 'application/json' },
     data: {

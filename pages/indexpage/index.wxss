@@ -19,3 +19,67 @@
 .usermotto {
   margin-top: 200px;
 }
+.fingerprint button {
+  width: 300rpx;
+  height: 300rpx;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  float: left;
+}
+.fingerprint image{
+  width: 100%;
+  height: 100%;
+}
+.logo image{
+  width: 100%;
+  height: 100%;
+}
+.logo{
+  width: 200rpx;
+  height: 300rpx;
+  float: left;
+}
+.time{
+  position: relative;
+  margin:60rpx 0 0 20rpx;
+  float: left;
+  line-height: 90rpx;
+  text-align: center;
+}
+.time .h1{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.time image{
+  position: absolute;
+  top: -30px;
+  width: 30px;
+  height: 30px;
+}
+.electricity{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 40rpx;
+  text-align: justify;
+  line-height: 50pox
+}
+.electricity view{
+  margin-left: 80rpx;
+  float: left;
+}
+.electricity text{
+  line-height: 70rpx;
+}
+.blue{
+  color:#79C5F7;
+}
+.green{
+  color:#78CD8C;
+}
+.gray{
+  color:#A5A79C;
+}
+.red{
+  color: #FF2439;
+}

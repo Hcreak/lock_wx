@@ -1,1 +1,4 @@
 /* pages/addpage/addpage.wxss */
+text{
+  font-size: 72rpx;
+}
