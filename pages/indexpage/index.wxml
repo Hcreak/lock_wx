@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+
+	<button bindtap="verify" plain='true' disabled='{{!m_button}}'>
+		<image src='../image/nan2.1.png' wx:if="{{m_verify}}"></image>
+		<image src='../image/nan.png' wx:else></image>		
+	</button>
+	<button bindtap="verify" plain='true' disabled='{{!f_button}}'>
+		<image src='../image/nv2.1.png' wx:if="{{f_verify}}"></image>
+		<image src='../image/nv.png' wx:else></image>
+	</button>  
+</view>

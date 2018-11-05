@@ -35,9 +35,7 @@ Page({
                   if (sres.data == 0)
                     console.log('error')
                   else {
-                    setTimeout(function() {
-                      app.setkey()
-                    }, 200)
+                    setTimeout(app.setkey, 200)
                   }
                 }
               })

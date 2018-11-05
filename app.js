@@ -1,10 +1,15 @@
 //app.js
 App({
-  onLaunch: function() {
-    // this.setkey()
+	globalData: {
+		intervalID: null
+	},
+
+	onLaunch: function() {
+    this.setkey()
   },
 
   setkey:function setkey() {
+		var that = this
     wx.clearStorageSync()
     console.log('setkey function')
 
@@ -27,7 +32,15 @@ App({
                   wx.setStorageSync('adata', sdata['adata'])
                   wx.setStorageSync('key', sdata['key'])
                   wx.setStorageSync('pwd', sdata['pwd'])
-                  setInterval(updatekey, 60000)
+
+									if (that.globalData.intervalID != null)
+										clearInterval(that.globalData.intervalID)
+									var intervalID = setInterval(updatekey, 60000)
+									that.globalData.intervalID = intervalID
+
+									wx.reLaunch({
+										url: '../indexpage/index'
+									})
                 }
                 else {
                   console.log('nonono')

@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/addpage/addpage",
-    "pages/history/history"
+    "pages/history/history",
+		"pages/indexpage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
