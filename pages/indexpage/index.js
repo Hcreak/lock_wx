@@ -1,11 +1,11 @@
 // var app = getApp();
 var Paho = require('../../utils/paho-mqtt-min.js');
 
-// var statu_code = {
-//   '-2': '未连接',
-//   '0': '未锁止',
-//   '1': '锁止中'
-// }
+var statu_code = {
+  '-2': '未连接',
+  '0': '未锁止',
+  '1': '锁止中'
+}
 
 Page({
 
@@ -23,6 +23,7 @@ Page({
     f_verify: false,
     timeoutID: 0,
 
+    lockno: '',
     statu: '-2',
     charge: '',
   },
@@ -64,6 +65,10 @@ Page({
       }
     });
 
+    this.setData({
+      lockno: wx.getStorageSync('lockno')
+    })
+
     this.setbutton()
   },
 
@@ -76,7 +81,7 @@ Page({
       }
     } else {
       wx.showToast({
-        title: '当前状态为  ' + that.data.statu,
+        title: '当前状态为  ' + statu_code[that.data.statu],
         icon: 'none'
       })
     }
@@ -121,13 +126,14 @@ Page({
     }
   },
 
-  // vibrateShort: function() {
-  //   dellock()
-  // },
-
-  // vibrateLong: function() {
-  //   wx.vibrateLong()
-  // }
+  setting: function() {
+    wx.showActionSheet({
+      itemList: ['注销设备', '历史纪录'],
+      success(res) {
+        console.log(res.tapIndex)
+      }
+    })
+  },
 
   dellock: function dellock() {
     console.log('dellock function')

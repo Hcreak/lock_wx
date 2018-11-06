@@ -37,7 +37,7 @@
 }
 .logo{
   width: 200rpx;
-  height: 300rpx;
+  height: 260rpx;
   float: left;
 }
 .time{
