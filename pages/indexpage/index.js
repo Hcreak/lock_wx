@@ -1,11 +1,11 @@
 // var app = getApp();
 var Paho = require('../../utils/paho-mqtt-min.js');
 
-var statu_code = {
-  '-2': '未连接',
-  '0': '未锁止',
-  '1': '锁止中'
-}
+// var statu_code = {
+//   '-2': '未连接',
+//   '0': '未锁止',
+//   '1': '锁止中'
+// }
 
 Page({
 
@@ -23,7 +23,7 @@ Page({
     f_verify: false,
     timeoutID: 0,
 
-    statu: '未连接',
+    statu: '-2',
     charge: '',
   },
 
@@ -69,7 +69,7 @@ Page({
 
   verify: function() {
     var that = this;
-    if (this.data.statu == '锁止中') {
+    if (this.data.statu == '1') {
       if (this.FingerPrint()) {
         var morf = wx.getStorageSync('morf')
         that.publish(morf, '1')
@@ -209,7 +209,7 @@ Page({
     // console.log(topic_part)
     if (topic_part[2] == 'statu') {
       this.setData({
-        statu: statu_code[payload]
+        statu: payload
       })
       if (payload == '-2') {
         this.setData({
@@ -220,7 +220,7 @@ Page({
     }
     if (topic_part[2] == 'charge') {
       this.setData({
-        charge: payload + '%'
+        charge: payload
       })
     }
     if (topic_part[2] == 'm') {

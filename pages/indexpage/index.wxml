@@ -2,12 +2,12 @@
 <view class="container">
   <view class='numbering'>
     <view class='logo'>
-      <image src='../image/SOTER.webp'></image>
+      <image src='../image/baka.jpg'></image>
     </view>
     <view class='time'>
       <text class='h1'>NO.XXXXXXXXX\n</text>
       <text>XXXX年XX月XX日</text>
-      <image src='../image/SOTER.webp'></image>
+      <image src='../image/setting.png'></image>
     </view>
   </view>
   <view class='electricity'>
@@ -16,18 +16,21 @@
       <text>电量:</text>
     </view>
     <view>
-        <text class='gray'>锁定\n</text>
-        <text class='green'>69%~大约3天</text>
+        <text class='gray' wx:if="{{statu == -2}}">未连接\n</text>
+        <text class='red' wx:if="{{statu == 0}}">未锁止\n</text>
+        <text class='blue' wx:if="{{statu == 1}}">锁止中\n</text>
+				
+        <text class='green' wx:if="{{charge != ''}}">{{charge}}%~大约3天</text>
     </view>
   </view>
   <view class='fingerprint'>
     <button bindtap="verify" plain='true' disabled='{{!m_button}}'>
-		<image src='../image/nan2.1.png' wx:if="{{m_verify}}"></image>
-		<image src='../image/nan.png' wx:else></image>		
+		<image src='../image/M2.4.png' wx:if="{{m_verify}}"></image>
+		<image src='../image/M1.4.png' wx:else></image>		
 	</button>
 	<button bindtap="verify" plain='true' disabled='{{!f_button}}'>
-		<image src='../image/nv2.1.png' wx:if="{{f_verify}}"></image>
-		<image src='../image/nv.png' wx:else></image>
+		<image src='../image/F2.4.png' wx:if="{{f_verify}}"></image>
+		<image src='../image/F1.4.png' wx:else></image>
 	</button>  
   </view>
 	
