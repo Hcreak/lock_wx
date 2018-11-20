@@ -24,6 +24,7 @@ Page({
     timeoutID: 0,
 
     lockno: '',
+    adate: '',
     statu: '-2',
     charge: '',
   },
@@ -65,9 +66,18 @@ Page({
       }
     });
 
-    this.setData({
-      lockno: wx.getStorageSync('lockno')
-    })
+    var adate = new Date(wx.getStorageSync('adate'));
+    var ndate = new Date();
+    var days_t = ndate.getTime() - adate.getTime();
+    var days = parseInt(days_t / (1000 * 60 * 60 * 24));
+    var year = adate.getFullYear()
+    var month = adate.getMonth() + 1
+    var day = adate.getDate()
+    var adate_str = year + '年' + month + '月' + day + '日 - ' + days + '天'
+      this.setData({
+        lockno: wx.getStorageSync('lockno'),
+        adate: adate_str
+      })
 
     this.setbutton()
   },
@@ -75,10 +85,7 @@ Page({
   verify: function() {
     var that = this;
     if (this.data.statu == '1') {
-      if (this.FingerPrint()) {
-        var morf = wx.getStorageSync('morf')
-        that.publish(morf, '1')
-      }
+			this.FingerPrint()
     } else {
       wx.showToast({
         title: '当前状态为  ' + statu_code[that.data.statu],
@@ -90,10 +97,9 @@ Page({
   //是否可以指纹识别
   checkIsFingerPrint: function() {
     var boole = this.data.isfingerPrint
-    var txt = "不可以使用指纹识别"
     if (!boole) {
       wx.showToast({
-        title: txt,
+				title: "不可以使用指纹识别",
       })
       return false
     } else {
@@ -104,6 +110,7 @@ Page({
 
   //进行指纹识别
   FingerPrint: function() {
+		var that = this
     if (this.checkIsFingerPrint) {
       wx.startSoterAuthentication({
         requestAuthModes: ['fingerPrint'],
@@ -111,26 +118,43 @@ Page({
         authContent: '请用指纹',
         success(res) {
           console.log("识别成功", res)
-          return true
+          var morf = wx.getStorageSync('morf')
+        	that.publish(morf, '1')
         },
         fail(res) {
           console.log("识别失败", res)
           wx.showToast({
             title: '识别失败',
+						icon: 'none'
           })
-          return false
         }
       })
-    } else {
-      return false
     }
   },
 
   setting: function() {
+    var that = this
     wx.showActionSheet({
       itemList: ['注销设备', '历史纪录'],
       success(res) {
-        console.log(res.tapIndex)
+        // console.log(res.tapIndex)
+        if (res.tapIndex == 0) {
+          wx.showModal({
+            title: '注销设备',
+            content: '确认注销设备？',
+            cancelColor: '#3cc51f',
+            confirmColor: '#f00',
+            success: function(res) {
+              if (res.confirm == true)
+                that.dellock()
+            }
+          })
+        }
+        if (res.tapIndex == 1) {
+          wx.navigateTo({
+            url: '../history/history',
+          })
+        }
       }
     })
   },
@@ -142,7 +166,8 @@ Page({
       success: function(res) {
         if (res.code) {
           wx.request({
-            url: 'http://127.0.0.1:5000/dellog',
+            // url: 'http://127.0.0.1:5000/dellog',
+            url: 'http://172.20.0.145:80/dellog',
             method: 'DELETE',
             header: {
               'content-type': 'application/json'

@@ -30,7 +30,7 @@ App({
                 if (sdata['exists'] == 1) {
                   wx.setStorageSync('lockno', sdata['lockno'])
                   wx.setStorageSync('morf', sdata['morf'])
-                  wx.setStorageSync('adata', sdata['adata'])
+                  wx.setStorageSync('adate', sdata['adate'])
                   wx.setStorageSync('key', sdata['key'])
                   wx.setStorageSync('pwd', sdata['pwd'])
 

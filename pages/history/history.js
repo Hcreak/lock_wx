@@ -26,7 +26,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+		wx.request({
+			url: 'http://172.20.0.145:80/gethistory',
+			method: 'GET',
+			data: {
+				lockno: wx.getStorageSync('lockno')
+			},
+			success: function (res) {
+				console.log(res.data)
+			}
+		})
   },
 
   /**

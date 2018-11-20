@@ -6,7 +6,7 @@
     </view>
     <view class='time'>
       <text class='h1'>NO.{{lockno}}\n</text>
-      <text>XXXX年XX月XX日</text>
+      <text>{{adate}}</text>
       <image src='../image/setting.png' bindtap='setting'></image>
     </view>
   </view>
