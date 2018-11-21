@@ -13,6 +13,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+	},
+
+	add: function () {
     wx.scanCode({
       onlyFromCamera: true,
       success(qres) {
@@ -33,10 +37,23 @@ Page({
                   qrcode: qres.result
                 },
                 success: function(sres) {
-                  if (sres.data == 0)
-                    console.log('error')
-                  else {
-                    setTimeout(app.setkey, 200)
+                  if (sres.data == 1) {
+										setTimeout(app.setkey, 200)
+
+                  } else {
+										if (sres.data == 2) {
+											wx.showToast({
+												title: '设备已被注册',
+												icon: 'none'
+											})
+										}
+										if (sres.data == 0) {
+											wx.showToast({
+												title: '检查二维码有错误',
+												icon: 'none'
+											})
+										}
+                    
                   }
                 }
               })
@@ -47,54 +64,6 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
+
 })

@@ -2,3 +2,13 @@
 text{
   font-size: 72rpx;
 }
+.add image{
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 200rpx;
+}
+.add text{
+  font-size: 48rpx;
+  text-align: center;
+  padding: 60rpx 0 0 55rpx;
+}

@@ -6,9 +6,8 @@
 		"pages/indexpage/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "Sakura桜",
     "navigationBarTextStyle": "black"
   }
 }

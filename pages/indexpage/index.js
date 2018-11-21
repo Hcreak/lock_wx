@@ -169,6 +169,7 @@ Page({
   },
 
   dellock: function dellock() {
+		var that = this
     console.log('dellock function')
 
     wx.login({
@@ -189,10 +190,14 @@ Page({
                 wx.showToast({
                   title: '设备注销成功',
                 })
+
                 wx.clearStorageSync()
+								that.data.client.disconnect()
+
                 wx.reLaunch({
                   url: '../addpage/addpage',
                 })
+								
               } else {
                 wx.showToast({
                   title: '设备注销失败',

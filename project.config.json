@@ -11,9 +11,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.2",
+	"libVersion": "2.4.0",
 	"appid": "wx5a300a6c52a72a71",
-	"projectname": "wxtest",
+	"projectname": "lock_wx",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

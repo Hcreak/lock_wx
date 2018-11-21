@@ -1,3 +1,11 @@
 <!--pages/addpage/addpage.wxml-->
-<text>没有绑定设备\n</text>
-<text>扫描识别用二维码添加</text>
+<view class='container'>
+  <text>没有绑定设备\n</text>
+  <text>扫描识别用二维码添加</text>
+  <view class='add'>
+    <view>
+      <image src='../image/add.png' bindtap='add'></image>
+    </view>
+    <text>添加</text>
+  </view>
+</view>
