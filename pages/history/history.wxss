@@ -1,1 +1,27 @@
 /* pages/history.wxss */
+.index-hd {
+  padding: 80rpx;
+  text-align: center;
+}
+.kind-list-item {
+  margin: 20rpx 0;
+  background-color: #FFFFFF;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+.kind-list-item-hd {
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+
+  transition: opacity .3s;
+}
+.kind-list-text{
+  flex: 1;
+}
+.index-desc {
+  margin-top: 20rpx;
+  color: #888888;
+  font-size: 26rpx;
+}
+

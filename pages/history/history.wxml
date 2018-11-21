@@ -1,2 +1,14 @@
 <!--pages/history.wxml-->
-<text>pages/history.wxml</text>
+<view class="index-bd">
+
+	<block wx:for-items="{{list}}">
+		<view class="kind-list-item">
+			<view class="kind-list-item-hd">
+				<view class="kind-list-text">{{item[1]}}</view>
+				<view class="index-desc">{{item[0]}}</view>
+			</view>
+		</view>
+	</block>
+
+</view>
+
