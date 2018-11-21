@@ -1,16 +1,16 @@
 //app.js
 App({
-	globalData: {
-		intervalID: null
-	},
+	// globalData: {
+	// 	intervalID: null
+	// },
 
-	onLaunch: function() {
+	onLaunch: function () {
     this.setkey()
   },
 
-  setkey:function setkey() {
+  setkey:function setkey () {
 		var that = this
-    wx.clearStorageSync()
+    // wx.clearStorageSync()
     console.log('setkey function')
 
     wx.login({
@@ -34,10 +34,10 @@ App({
                   wx.setStorageSync('key', sdata['key'])
                   wx.setStorageSync('pwd', sdata['pwd'])
 
-									if (that.globalData.intervalID != null)
-										clearInterval(that.globalData.intervalID)
-									var intervalID = setInterval(updatekey, 60000)
-									that.globalData.intervalID = intervalID
+									// if (that.globalData.intervalID != null)
+									// 	clearInterval(that.globalData.intervalID)
+									// var intervalID = setInterval(updatekey, 60000)
+									// that.globalData.intervalID = intervalID
 
 									wx.reLaunch({
 										url: '../indexpage/index'
@@ -62,22 +62,22 @@ App({
   } 
 })
 
-function updatekey() {
-  var oldkey = wx.getStorageSync('key')
-  wx.request({
-    // url: 'http://127.0.0.1:5000/updatekey',
-    url: 'http://172.20.0.145:80/updatekey',    
-    method: 'POST',
-    header: { 'content-type': 'application/json' },
-    data: {
-      oldkey: oldkey
-    },
-    success: function (sres) {
-      if (sres.data == 0)
-        setkey()
-      else
-        console.log('update success')
-    }
-  })
-}
+// function updatekey() {
+//   var oldkey = wx.getStorageSync('key')
+//   wx.request({
+//     // url: 'http://127.0.0.1:5000/updatekey',
+//     url: 'http://172.20.0.145:80/updatekey',    
+//     method: 'POST',
+//     header: { 'content-type': 'application/json' },
+//     data: {
+//       oldkey: oldkey
+//     },
+//     success: function (sres) {
+//       if (sres.data == 0)
+//         setkey()
+//       else
+//         console.log('update success')
+//     }
+//   })
+// }
 

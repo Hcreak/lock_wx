@@ -46,10 +46,18 @@ Page({
       }
     })
 
+		var key = wx.getStorageSync('key')
+		var pwd = wx.getStorageSync('pwd')
+
     // var client = new Paho.Client("172.20.0.145", 8083, "clientId");
-    var client = new Paho.Client("172.20.0.145", 8083, wx.getStorageSync('key'));
+    var client = new Paho.Client("172.20.0.145", 8083, key);
+
     client.onConnectionLost = that.onConnectionLost;
     client.onMessageArrived = that.onMessageArrived;
+
+		var willmsg = new Paho.Message(key);
+		willmsg.destinationName = '/unauth';
+
     client.connect({
       useSSL: false,
       // userName: 'user',
@@ -58,11 +66,12 @@ Page({
       password: wx.getStorageSync('pwd'),
       cleanSession: true,
       keepAliveInterval: 30,
+			willMessage: willmsg,
       onSuccess: function() {
         console.log("onConnect");
         that.data.client = client
         client.subscribe(that.buildTopic('#'));
-        that.publish('ping', '1')
+        // that.publish('ping', '1')
       }
     });
 
