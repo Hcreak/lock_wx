@@ -50,7 +50,7 @@ Page({
 		var pwd = wx.getStorageSync('pwd')
 
     // var client = new Paho.Client("172.20.0.145", 8083, "clientId");
-    var client = new Paho.Client("172.20.0.145", 8083, key);
+    var client = new Paho.Client("wss://sakura.xeonphi.cn/mqtt", key);
 
     client.onConnectionLost = that.onConnectionLost;
     client.onMessageArrived = that.onMessageArrived;
@@ -59,7 +59,7 @@ Page({
 		willmsg.destinationName = '/unauth';
 
     client.connect({
-      useSSL: false,
+      useSSL: true,
       // userName: 'user',
       userName: wx.getStorageSync('key'),
       // password: 'pwd',
