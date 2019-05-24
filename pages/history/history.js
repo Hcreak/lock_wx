@@ -21,7 +21,7 @@ Page({
   onShow: function () {
 		var that = this
 		wx.request({
-			url: 'https://sakura.xeonphi.cn/gethistory',
+			url: 'https://sakura.xeonphi.cn/wx/gethistory',
 			method: 'GET',
 			data: {
 				lockno: wx.getStorageSync('lockno')

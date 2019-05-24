@@ -18,7 +18,7 @@ App({
         if (res.code) {
           wx.request({
             // url: 'http://127.0.0.1:5000/login',
-            url: 'https://sakura.xeonphi.cn/login',            
+            url: 'https://sakura.xeonphi.cn/wx/login',            
             method: 'POST',
             header: { 'content-type': 'application/json' },
             data: {

@@ -27,7 +27,7 @@ Page({
             if (res.code) {
               wx.request({
                 // url: 'http://127.0.0.1:5000/logup',
-								url: 'http://172.20.0.145:80/logup',
+                url: 'https://sakura.xeonphi.cn/wx/logup',
                 method: 'POST',
                 header: {
                   'content-type': 'application/json'

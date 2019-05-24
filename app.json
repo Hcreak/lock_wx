@@ -3,11 +3,12 @@
     "pages/index/index",
     "pages/addpage/addpage",
     "pages/history/history",
-		"pages/indexpage/index"
+    "pages/indexpage/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Sakura桜",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

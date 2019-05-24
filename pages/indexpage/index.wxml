@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container">
   <view class='numbering'>
-    <view class='logo'>
+    <!-- <view class='logo'>
       <image src='../image/baka.jpg'></image>
-    </view>
+    </view> -->
     <view class='time'>
       <text class='h1'>NO.{{lockno}}\n</text>
       <text>{{adate}}</text>
@@ -13,14 +13,14 @@
   <view class='electricity'>
     <view>
       <text>当前状态:\n</text>
-      <text>电量:</text>
+      <!-- <text>电量:</text> -->
     </view>
     <view>
         <text class='gray' wx:if="{{statu == -2}}">未连接\n</text>
         <text class='red' wx:if="{{statu == 0}}">未锁止\n</text>
         <text class='blue' wx:if="{{statu == 1}}">锁止中\n</text>
 				
-        <text class='green' wx:if="{{charge != ''}}">{{charge}}%~大约{{(charge-charge%30)/30}}天</text>
+        <!-- <text class='green' wx:if="{{charge != ''}}">{{charge}}%~大约{{(charge-charge%30)/30}}天</text> -->
     </view>
   </view>
   <view class='fingerprint'>

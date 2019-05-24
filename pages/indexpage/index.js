@@ -26,7 +26,7 @@ Page({
     lockno: '',
     adate: '',
     statu: '-2',
-    charge: '',
+    // charge: '',
   },
 
   /**
@@ -177,7 +177,7 @@ Page({
         if (res.code) {
           wx.request({
             // url: 'http://127.0.0.1:5000/dellog',
-            url: 'http://172.20.0.145:80/dellog',
+            url: 'http://172.20.0.145:80/wx/dellog',
             method: 'DELETE',
             header: {
               'content-type': 'application/json'
@@ -256,18 +256,18 @@ Page({
       this.setData({
         statu: payload
       })
-      if (payload == '-2') {
-        this.setData({
-          charge: ''
-        })
-      }
+      // if (payload == '-2') {
+      //   this.setData({
+      //     charge: ''
+      //   })
+      // }
 
     }
-    if (topic_part[2] == 'charge') {
-      this.setData({
-        charge: payload
-      })
-    }
+    // if (topic_part[2] == 'charge') {
+    //   this.setData({
+    //     charge: payload
+    //   })
+    // }
     if (topic_part[2] == 'm') {
       this.setData({
         m_button: false,
